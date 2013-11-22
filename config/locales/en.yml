@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  gabe name: "Gabe Kopley"
+  mike name: "Mike Makarov"
+  about title: "This is Rails School SF!"
+  about text: "Where things rock"

@@ -3,7 +3,8 @@ require "user_sanitizer"
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :admin?
-  contenteditable_filter "admin?"
+  contenteditable_filter :admin?
+  helper_method :application_city
 
   def admin?
     user_signed_in? && current_user.admin
@@ -19,5 +20,10 @@ class ApplicationController < ActionController::Base
     else
       super
     end
+  end
+
+  private
+  def global_city
+    params[:city]
   end
 end

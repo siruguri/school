@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
   def index
     gon.signed_in = user_signed_in?
     gon.user_lessons = current_user.lessons.pluck(:id) if user_signed_in?
-    @lessons = Lesson.order("start_time DESC")
+    @lessons = Lesson.for_city(params[:city]).order("start_time DESC")
 
     respond_to do |format|
       format.html # index.html.erb

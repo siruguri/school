@@ -13,9 +13,11 @@ class HomeController < ApplicationController
   end
 
   def index
-    @lessons_this_month = Lesson.lessons_this_month
-    @past_lessons = Lesson.past_lessons
-    @future_lessons = Lesson.future_lessons
+    if global_city
+      @lessons_this_month = Lesson.lessons_this_month(city: global_city)
+      @past_lessons = Lesson.past_lessons(city: global_city)
+      @future_lessons = Lesson.future_lessons(city: global_city)
+    end
   end
 
 end
